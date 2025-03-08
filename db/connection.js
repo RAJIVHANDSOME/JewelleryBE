@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 
+const DATABASE_URL = process.env.DATABASE_URL;
 const connectDB = async () => {
     try {
-        await mongoose.connect('mongodb+srv://admin:admin@cluster0.vr23ljt.mongodb.net/jewellery_app?retryWrites=true&w=majority', {
+        await mongoose.connect(DATABASE_URL, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         });
